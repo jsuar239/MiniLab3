@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-pi-pico",
+      "id": "pico",
+      "top": -46.13,
+      "left": 34.59,
+      "rotate": 90,
+      "attrs": { "env": "micropython-20230426-v1.20.0" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 191.4,
+      "left": -62.1,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": 187.9,
+      "left": 131.82,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": -208.11,
+      "left": 45.56,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -181.01,
+      "left": -254.26,
+      "attrs": { "volume": "0.1" }
+    },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": 283.72, "left": 57.33, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd2", "top": 240.48, "left": -199.25, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd3", "top": -164.1, "left": -125.27, "attrs": {} }
+  ],
+  "connections": [
+    [ "bz1:1", "gnd2:GND", "green", [ "v0" ] ],
+    [ "btn2:2.l", "gnd1:GND", "green", [ "h0" ] ],
+    [ "btn1:2.l", "gnd1:GND", "green", [ "h-23.48", "v84.33" ] ],
+    [ "bz1:2", "pico:GP15", "green", [ "v36.68", "h94.2" ] ],
+    [ "lcd1:GND", "gnd3:GND", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "pico:VBUS", "red", [ "h-65.95", "v-72.47", "h398.81", "v337.31" ] ],
+    [ "lcd1:SDA", "pico:GP0", "green", [ "h-26.55", "v114.07", "h135.5" ] ],
+    [ "lcd1:SCL", "pico:GP1", "green", [ "h-18.86", "v92.08", "h114.36" ] ],
+    [ "btn1:1.l", "pico:GP17", "green", [ "h0" ] ],
+    [ "btn2:1.l", "pico:GP16", "green", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
